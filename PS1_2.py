@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-
+Multiplication of Matrix
 @author: Alcorion
 """
 
