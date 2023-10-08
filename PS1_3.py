@@ -2,7 +2,7 @@
 """
 Pascal Triangle
 
-@author: HUAWEI
+@author: Alcorion
 """
 
 def Pascal_triangle(k):
