@@ -19,10 +19,10 @@ def Least_moves(x):
             step=step+1
    return step
 
-print(Least_moves(5))
-print(Least_moves(3))
+
 #Realization of random number from 1 to 100  
-l=np.random.randint(1,100)
+l=input('input the number:')
+l=int(l)
 L=str(l)
 Lm=Least_moves(l)
 print('the least steps to',L,'is',Lm )
