@@ -26,26 +26,26 @@ def three2ten(x):
     return result
 
 
-#def find_expression(x):
-array=[0 for w in range(2*(3 ** 8)+1)]
-p=0
-for i in range(0,3**9):
+def Find_expression(x):
+ array=[0 for w in range(2*(3 ** 8))]
+ p=0
+ for i in range(0,3**9):
     result=0
-    de=ten2three(i+1)
+    de=ten2three(i)
     de=str(de)
     temp=1
     De= de.zfill(9)
-    if int(De[0])==1:
+    if int(De[0])==2:
         continue
    
-    if int(De[0])==2:
+    if int(De[0])==1:
         flag=-1
     else:
         flag=1
     for j in range(1,9):
-        if int(De[j])==0:
+        if int(De[j])==2:
             temp=temp *10 + j+1
-        elif int(De[j])==1:    
+        elif int(De[j])==0:    
             result=result+temp*flag
             flag=1
             temp=j+1
@@ -53,5 +53,39 @@ for i in range(0,3**9):
             result=result+temp*flag
             flag=-1
             temp=j+1
+    result=result +temp *flag
     array[p]=result
     p=p+1
+ count=0  
+ for k in range(13122):
+    string=''
+    if array[k]==x:
+        count=count+1
+        pro=str(ten2three(k)).zfill(9)
+        num='123456789'
+        for p in range(9):
+            if int(pro[p])==0 and p!=0:
+                mark='+'
+            elif int(pro[p])==0 and p==0:
+                mark=''
+            elif int(pro[p])==1:
+                mark='-'
+            else:
+                mark=''
+            string=string+mark
+            string=string+num[p]
+        string=string+'='
+        string=string+str(x)
+        print(string)
+ return count
+            
+#Total Solutions
+Total_solutions=[0 for x in range(100)]
+for idx in range(100):
+    Total_solutions[idx]=Find_expression((idx+1))
+
+
+import matplotlib.pyplot as plt
+Xarr=np.arange(1,101)
+plt.bar(Xarr,Total_solutions,color='b')
+plt.show()
